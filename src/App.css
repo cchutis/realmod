@@ -6,6 +6,7 @@
   align-items: center;
   padding: 10px;
   margin: 20px;
+  border-radius: 20px;
 }
 
 .comments-container {
@@ -40,4 +41,28 @@
 
 .main {
 
+}
+
+.menu-bar {
+  position: sticky;
+  top: 0;
+  height: 10%;
+  background-color: aqua;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn {
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: blue;
+  border-radius: 20px;
+  border: 0;
+  font-size: 20px;
 }
