@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+// import { connect } from 'react-redux';
+import MenuBar from './containers/MenuBar';
+import MainContainer from './containers/MainContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let data = require('./comments.json')
+
+
+export default class App extends Component {
+
+  state = {
+    comments: []
+  }
+
+  componentDidMount() {
+    this.fetchComments()
+  }
+
+  // wanted to originally fetch the comments list, however since it's a local dataset, 
+  // this works without making a fetch request.
+  fetchComments = () => {
+    this.setState({
+      comments: data.comments
+    })
+  }
+
+    render() {
+      return (
+        <div className="main">
+          <MenuBar />
+          <MainContainer comments={this.state.comments} />
+        </div>
+      );
+    }
 }
 
-export default App;
+// function msp(state) {
+//   return state;
+// }
+
+// function mdp(dispatch) {
+
+// }
+
+// export default connect(msp, mdp)(App);
+

@@ -2,7 +2,7 @@ Congratulations!  You are officially being nominated for The Internets first ann
 
 REQUIREMENTS:
 1. Create a react app without the use of local state, and instead, replace it with redux.
-2. Using the data provided, create a list view that can display data in an efficient manner.  
+<!-- 2. Using the data provided, create a list view that can display data in an efficient manner.   -->
 3. From there, create an action that will:
     <br>a. Allow you to delete a comment from the list.
     <br>b. Maintain a record of how many comments you have deleted so far
