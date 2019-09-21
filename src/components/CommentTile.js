@@ -19,7 +19,7 @@ export default class CommentTile extends Component {
                 Mod Hates?: {this.props.comment.moddy_hates}
                 </span>
             </p>
-            <button>Delete This</button>
+            <button onClick={() => this.props.deleteComment(this.props.comment.id)}>Delete This</button>
           </div>
         );
     }

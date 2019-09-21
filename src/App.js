@@ -12,8 +12,7 @@ export default class App extends Component {
   
   state = {
     comments: [],
-    updatedComments: [],
-    deletedComments: [],
+    deletedComments: 0,
     selectedView: 'comments'
   };
 
@@ -40,11 +39,11 @@ export default class App extends Component {
   };
 
   renderCommentsPage = () => {
-    return <MainContainer comments={this.state.comments} />
+    return <MainContainer comments={this.state.comments} deleteComment={this.deleteComment} deletedComments={this.state.deletedComments} />
   }
 
   renderStatsPage = () => {
-    return <StatsContainer deletedComments={this.state.deletedComments} />
+    return <StatsContainer deletedComments={this.state.deletedComments} comments={this.state.comments}/>
   }
 
   renderView = () => {
@@ -66,11 +65,8 @@ export default class App extends Component {
             }
         })
         this.setState({
-            comments: updatedComments
-        }, () => {
-            fetch(`http://localhost:3000/comments.json`, {
-                method: "DELETE"
-            })
+            comments: updatedComments,
+            deletedComments: this.state.deletedComments + 1
         })
     }
 

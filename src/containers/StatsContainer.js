@@ -8,7 +8,9 @@ export default class StatsContainer extends Component {
             <div>
                 STATS
 
-                Deleted Comments: {this.props.deletedComments.length}
+                Deleted Comments: {this.props.deletedComments}
+
+                Active Comments: {this.props.comments.length}
             </div>
         )
     }

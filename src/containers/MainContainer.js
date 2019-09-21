@@ -5,7 +5,10 @@ export default class MainContainer extends Component {
 
     render() {
         return (
-           <CommentContainer comments={this.props.comments} />
+            <div>
+                Deleted Comments: {this.props.deletedComments}
+                <CommentContainer comments={this.props.comments} deleteComment={this.props.deleteComment}/>
+            </div>
         )
     }
 }
