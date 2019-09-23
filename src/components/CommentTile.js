@@ -16,7 +16,7 @@ export default class CommentTile extends Component {
                 <span className="comment-date"><strong>Date:</strong> {date.toDateString()}</span>
                 &nbsp; | &nbsp;
                 <span className="mod-status">
-                Mod Hates?: {this.props.comment.moddy_hates}
+                {this.props.comment.moddy_hates ? 'Sir Moddy hates this' : 'Sir Moddy likes this'}
                 </span>
             </p>
             <button onClick={() => this.props.deleteComment(this.props.comment.id)}>Delete This</button>
