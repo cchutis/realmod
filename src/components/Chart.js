@@ -18,7 +18,8 @@ export default class Chart extends Component {
                   border: "0"
                 }}
               ></div>
-              Current Comments
+              <p className="chart-reading">Current Comments</p>
+              <h1 className="chart-reading blue">{this.props.comments.length}</h1>
             </div>
             <div className="inline">
               <div
@@ -29,7 +30,8 @@ export default class Chart extends Component {
                   border: "0"
                 }}
               ></div>
-              Deleted Comments
+              <p className="chart-reading">Deleted Comments</p>
+              <h1 className="chart-reading red">{this.props.deletedComments}</h1>
             </div>
             <div className="inline">
               <div
@@ -40,7 +42,8 @@ export default class Chart extends Component {
                   border: "0"
                 }}
               ></div>
-              Current Comments
+              <p className="chart-reading">Hated Comments</p>
+              <h1 className="chart-reading green">{this.props.hatedComments}</h1>
             </div>
           </div>
         );
