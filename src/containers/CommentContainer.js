@@ -5,7 +5,7 @@ export default class CommentContainer extends Component {
 
     renderComments = () => {
         return this.props.comments.map(comment => {
-            return <CommentTile key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>
+            return <CommentTile key={comment.id} comment={comment} deleteComment={this.props.deleteComment} />
         })
     }
 

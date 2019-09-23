@@ -66,3 +66,15 @@
   border: 0;
   font-size: 20px;
 }
+
+.inline {
+  display: inline-block;
+  padding: 40px;
+}
+
+.charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}

@@ -22,7 +22,7 @@ export default class StatsContainer extends Component {
                 <p><strong>Active Comments:</strong> {this.props.comments.length}</p>
                 <p><strong>Sir Moddy Hates:</strong> {this.hatedComments()} comments.</p>
 
-                <Chart comments={this.props.comments} deletedComments={this.props.deletedComments} hatedComments={this.hatedComments} />
+                <Chart comments={this.props.comments} deletedComments={this.props.deletedComments} hatedComments={this.hatedComments()} />
             </div>
         )
     }
