@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deleteComment } from '../actions'
 
-
-export default class CommentTile extends Component {
+class CommentTile extends Component {
     
     
     render() {
@@ -24,3 +25,16 @@ export default class CommentTile extends Component {
         );
     }
 }
+
+function msp(state) {
+  return {
+    deletedComments: state.deletedComments
+  };
+}
+function mdp(dispatch){
+  return {
+    deleteComment: (id) => dispatch(deleteComment(id))
+  }
+}
+
+export default connect(msp, mdp)(CommentTile);

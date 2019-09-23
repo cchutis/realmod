@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import CommentContainer from './CommentContainer'
+import { connect } from 'react-redux';
 
-export default class MainContainer extends Component {
+class MainContainer extends Component {
 
     render() {
         return (
@@ -12,3 +13,11 @@ export default class MainContainer extends Component {
         )
     }
 }
+
+function msp(state) {
+  return {
+    deletedComments: state.deletedComments
+  };
+}
+
+export default connect(msp)(MainContainer);

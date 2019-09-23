@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import CommentTile from '../components/CommentTile';
+import { connect } from 'react-redux';
 
-export default class CommentContainer extends Component {
+
+class CommentContainer extends Component {
 
     renderComments = () => {
         return this.props.comments.map(comment => {
@@ -17,3 +19,11 @@ export default class CommentContainer extends Component {
         )
     }
 }
+
+function msp(state) {
+  return {
+    comments: state.comments
+  };
+}
+
+export default connect(msp)(CommentContainer);

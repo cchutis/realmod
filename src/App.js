@@ -1,34 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-// import { connect } from 'react-redux';
 import MenuBar from './containers/MenuBar';
 import MainContainer from './containers/MainContainer';
 import StatsContainer from './containers/StatsContainer';
 
+import { connect } from 'react-redux';
+import { loadComments } from './actions';
+
 const data = 'http://localhost:3000/comments.json'
 
-
-export default class App extends Component {
-  
-  state = {
-    comments: [],
-    deletedComments: 0,
-    selectedView: 'comments'
-  };
+class App extends Component {
 
   componentDidMount() {
     this.fetchComments();
   }
 
-  // wanted to originally fetch the comments list, however since it's a local dataset,
-  // this works without making a fetch request.
   fetchComments = () => {
     fetch(data)
     .then(r => r.json())
-    .then(commentList => {
-      this.setState({
-        comments: commentList.comments
-      });
+    .then(response => {
+      this.props.loadComments(response.comments)
     })
   };
 
@@ -39,36 +30,23 @@ export default class App extends Component {
   };
 
   renderCommentsPage = () => {
-    return <MainContainer comments={this.state.comments} deleteComment={this.deleteComment} deletedComments={this.state.deletedComments} />
+    return <MainContainer comments={this.props.comments} deleteComment={this.deleteComment} deletedComments={this.props.deletedComments} />
   }
 
   renderStatsPage = () => {
-    return <StatsContainer deletedComments={this.state.deletedComments} comments={this.state.comments}/>
+    return <StatsContainer deletedComments={this.props.deletedComments} comments={this.props.comments}/>
   }
 
   renderView = () => {
-    switch(this.state.selectedView) {
+    switch(this.props.selectedView) {
     case 'comments':
       return this.renderCommentsPage();
     case 'stats':
       return this.renderStatsPage();
+      default: return
     }
   }
 
-  deleteComment = (id) => {
-        // console.log(this.state.projects)
-        const updatedComments = this.state.comments.filter(comment => {
-            if(comment.id === id) {
-                return null
-            } else {
-                return comment
-            }
-        })
-        this.setState({
-            comments: updatedComments,
-            deletedComments: this.state.deletedComments + 1
-        })
-    }
 
   render() {
     return (
@@ -80,13 +58,27 @@ export default class App extends Component {
   }
 }
 
-// function msp(state) {
-//   return state;
-// }
+function msp(state){
+  return {
+    comments: state.comments,
+    deletedComments: state.deletedComments,    
+    selectedView: state.selectedView
+  }
+}
 
-// function mdp(dispatch) {
+function mdp(dispatch){
+  return {
+    comments: () => { 
+      dispatch({type: "COMMENTS"})
+    },
+    deletedComments: () => {
+      dispatch({type: "DELETEDCOMMENTS"})
+    },
+    selectedView: () => {
+      dispatch({type: "SELECTEDVIEW"})
+    }
+  }
+}
 
-// }
 
-// export default connect(msp, mdp)(App);
-
+export default connect(msp, {mdp, loadComments})(App);

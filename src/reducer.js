@@ -1,33 +1,29 @@
 const defaultState = {
-  likes: 0,
-  text: "",
-  darkMode: false,
-  thangs: []
+    comments: [],
+    deletedComments: 0,
+    selectedView: 'comments'
 };
 
 function reducer(prevState = defaultState, action) {
   switch (action.type) {
-    case "LIKE":
-      return { ...prevState, likes: prevState.likes + 1 };
-    case "DISLIKE":
-      return { ...prevState, likes: prevState.likes - 1 };
-    case "DARK_MODE":
-      return { ...prevState, darkMode: !prevState.darkMode };
-    case "HANDLE_CHANGE":
-      return { ...prevState, text: action.payload };
-    case "PRINT":
-      return {
-        ...prevState,
-        thangs: [...prevState.thangs, prevState.text],
-        text: ""
-      };
-    case "DEPRINT":
-      return {
-        ...prevState,
-        thangs: prevState.thangs.filter(thang => {
-          return thang !== action.payload;
-        })
-      };
+
+    case "COMMENTS":
+      return { ...prevState, comments: action.payload };
+
+    case "DELETEDCOMMENTS":
+        const updatedComments = prevState.comments.filter(comment => {
+          if (comment.id === action.payload) {
+            return null;
+          } else {
+            return comment;
+          }
+        });
+      return { ...prevState, deletedComments: prevState.deletedComments + 1, comments: updatedComments };
+
+    case "SELECTEDVIEW":
+        console.log(action.payload);
+        return { ...prevState, selectedView: action.payload };
+
     default:
       return prevState;
   }
