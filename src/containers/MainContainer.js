@@ -7,7 +7,7 @@ class MainContainer extends Component {
     render() {
         return (
             <div>
-                Deleted Comments: {this.props.deletedComments}
+                <p className="delete-stats">Deleted Comments: {this.props.deletedComments}</p>
                 <CommentContainer comments={this.props.comments} deleteComment={this.props.deleteComment}/>
             </div>
         )

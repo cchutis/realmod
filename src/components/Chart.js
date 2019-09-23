@@ -3,10 +3,7 @@ import React, { Component } from 'react'
 
 export default class Chart extends Component {
 
-    
     render() {
-        console.log(this.props.deletedComments)
-        
         return (
           <div className="charts">
             <div className="inline">
@@ -36,14 +33,14 @@ export default class Chart extends Component {
             <div className="inline">
               <div
                 style={{
-                  backgroundColor: "green",
+                  backgroundColor: "orange",
                   width: "150px",
                   height: `${this.props.hatedComments * 20}px`,
                   border: "0"
                 }}
               ></div>
               <p className="chart-reading">Hated Comments</p>
-              <h1 className="chart-reading green">{this.props.hatedComments}</h1>
+              <h1 className="chart-reading orange">{this.props.hatedComments}</h1>
             </div>
           </div>
         );

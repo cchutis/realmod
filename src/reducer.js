@@ -21,7 +21,6 @@ function reducer(prevState = defaultState, action) {
       return { ...prevState, deletedComments: prevState.deletedComments + 1, comments: updatedComments };
 
     case "SELECTEDVIEW":
-        console.log(action.payload);
         return { ...prevState, selectedView: action.payload };
 
     default:

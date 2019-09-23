@@ -8,10 +8,10 @@ class MenuBar extends Component {
     render() {
         return (
             <div className="menu-bar">
-               {/* <img src="logo.png" /> */}
                 <Link to="/comments">
                     <button className="menu-btn" onClick={() => this.props.toggleView('comments')}>Comments</button>
                 </Link>
+               <img src="mod.png" alt="mod logo" className="logo" />
                 <Link to="/stats">
                     <button className="menu-btn" onClick={() => this.props.toggleView('stats')}>Stats</button>
                 </Link>

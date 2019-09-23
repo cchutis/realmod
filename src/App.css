@@ -1,5 +1,5 @@
 .comment-tile {
-  background-color: lightgrey;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,7 +7,11 @@
   padding: 10px;
   margin: 20px;
   border-radius: 20px;
+  box-shadow: 2px 2px 20px red;
 }
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.01); }
 
 .comments-container {
   width: 100vw;
@@ -23,7 +27,7 @@
 .comment-author {
   margin-top: -20px;
   font-size: 20px;
-  color: blue;
+  color: maroon;
   padding-left: 20%; 
 }
 
@@ -31,8 +35,23 @@
   margin-top: -10px;
 }
 
-.comment-date {
+.stats-container {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 30px;
+  margin: 30px;
+  height: 100vw;
+}
 
+.delete-stats {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  position: fixed;
+  right: 20px;
+  top: -10px;
+  z-index: 3;
 }
 
 .mod-status {
@@ -40,19 +59,25 @@
 }
 
 .main {
-
+  background-color: maroon;
 }
 
 .menu-bar {
   position: sticky;
   top: 0;
-  height: 10%;
-  background-color: aqua;
+  height: 15%;
+  background-color: orange;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+}
+
+.logo {
+  height: 4%;
+  width: 4%;
 }
 
 .menu-btn {
@@ -61,10 +86,34 @@
   width: 150px;
   height: 40px;
   color: white;
-  background-color: blue;
+  background-color: maroon;
   border-radius: 20px;
   border: 0;
   font-size: 20px;
+}
+
+.delete-btn {
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: maroon;
+  border-radius: 20px;
+  border: 0;
+  font-size: 20px;
+}
+
+.delete-btn:hover {
+  color: white;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  color: maroon;
+  background-color: white;
+  cursor: pointer;
 }
 
 .inline {
@@ -77,6 +126,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
+  background-color: white;
+  border-radius: 30px;
+  color: black;
 }
 
 .chart-area {
@@ -94,9 +146,9 @@
 }
 
 .red {
-  color: red;
+  color: maroon;
 }
 
-.green {
-  color: green;
+.orange {
+  color: orange;
 }

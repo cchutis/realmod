@@ -23,12 +23,6 @@ class App extends Component {
     })
   };
 
-  toggleView = (view) => {
-    this.setState({
-      selectedView: view
-    })
-  };
-
   renderCommentsPage = () => {
     return <MainContainer comments={this.props.comments} deleteComment={this.deleteComment} deletedComments={this.props.deletedComments} />
   }
